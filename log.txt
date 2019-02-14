@@ -1,0 +1,11 @@
+commit e0df8b5ac2d931f6ba6775b1dac0dc5da1c566b7 (HEAD -> master)
+Author: Prohorchik Nikolai <prohorchik-37@tut.by>
+Date:   Thu Feb 14 22:15:17 2019 +0300
+
+    add task 1/status.txt
+
+commit 5c7be693634fba403fa454a1b41eee03ddb99106
+Author: Prohorchik Nikolai <prohorchik-37@tut.by>
+Date:   Thu Feb 14 21:34:17 2019 +0300
+
+    add .gitignore
