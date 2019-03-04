@@ -1,0 +1,337 @@
+body{
+	background-color:#f4f4f4;
+	color:#555;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0;
+}
+
+#main-header{
+	font-size:20px;
+	font-family:Monotype Corsiva, Cursive;
+	background-color:#79489C;
+	color:#E0EB1A;
+	margin:auto;
+	overflow:hidden;
+}
+
+#main-header div{
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.menu 
+{ 
+   display: none; 
+} 
+
+.menu-button{	
+	position:fixed;
+	top:11.2em;
+	right:0em;
+	color:#FFE4E1;
+	background-color:#FFF5EE;
+	padding:0.5em 1em;
+}
+
+.menu-button{
+	text-decoration:none;
+}
+.menu-button:focus{
+	outline:none;
+}
+.menu-button:focus ~ .menu, 
+.menu-button:active ~ .menu, 
+.menu:hover{ 
+	display: block; 
+	z-index:1;
+	position:fixed;
+	top:11.2em;
+	right:5em;
+}
+
+.filter{
+	border: 5px ridge #79489C;
+	padding: 0px 10px;
+	color:#79489C;
+	background-color:#FFFFE0;
+}
+
+.filter button{
+	border:0;
+	border-radius:30px;
+	font-weight:bold; 
+	font-size:30px;
+	height:40px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+	width:70%;
+	margin:0 15%;
+}
+
+.filter button:focus{
+	outline:none;
+}
+.filter button:active{
+	background-color:#9370DB;
+}
+
+.buttonAdd{
+	margin-top: 1.5em;
+}
+
+.buttonAdd button{
+	/*display: none;*/
+	border: 0;
+	border-radius: 30px;
+	font-weight: bold; 
+	font-size:50px;
+	width: 222px;
+	height: 60px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonAdd button:focus{
+	outline:none;
+}
+.buttonAdd button:active{
+	background-color:#9370DB;
+}
+
+.LogoName{
+	min-width:35%;
+	white-space: nowrap;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.LogoName div{
+	vertical-align:middle;
+}
+
+.Logo{
+	margin:0 1em;
+}
+
+.Logo img{
+	display:block;
+	border-radius:30px;
+	width:60px;
+	height:60px;
+}
+
+.UserLogoName{
+	min-width:64%;
+	white-space: nowrap;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.UserLogoName div{
+	vertical-align:middle;
+}
+
+.UserName{
+	margin-right:30%;
+}
+
+.UserLogo{
+	margin:0 3em 0 1em;
+}
+
+.UserLogo img{
+	display:block;
+	border-radius:30px;
+	width:60px;
+	height:60px;
+}
+
+
+.SignIn{
+	margin-right:20%;
+	white-space: nowrap;
+}
+
+.SignIn a{
+	text-decoration:none;
+	color:#E0EB1A;
+}
+
+.container{
+	width:30%;
+	min-width: 600px;
+	margin: 100px auto;
+	overflow:hidden;
+}
+
+.NameDate{
+	position:relative;
+	color:#E0EB1A;
+	background-color: #79489C;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.NameDate div{
+	vertical-align:middle;
+	display:inline-block;
+}
+
+.AuthorLogoName div{
+	vertical-align:middle;
+}
+
+.AuthorLogo img{
+	display:block;
+	border-radius:30px;
+	width:60px;
+	height:60px;
+	margin:0px 20px;
+}
+
+.Date{
+	margin-left: 15%;
+}
+
+.EditDeleteButtons div{
+	display:block;
+}
+
+.EditDeleteButtons {
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+.buttonEdit button{
+	/*display: none;*/
+	border: 0;
+	font-weight: bold; 
+	font-size:25px;
+	width: 50px;
+	height: 41px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonEdit button:focus{
+	outline:none;
+}
+.buttonEdit button:active{
+	background-color:#9370DB;
+}
+
+.buttonDelete button{
+	/*display: none;*/
+	border: 0;
+	font-weight: bold; 
+	font-size:25px;
+	width: 50px;
+	height: 41px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonDelete button:focus{
+	outline:none;
+}
+.buttonDelete button:active{
+	background-color:#9370DB;
+}
+
+.Hash{
+	max-height:135px;
+	color:#79489C;
+	background-color:#E3F5C6;
+	overflow:hidden;
+}
+
+.Hash:hover{
+	max-height:none;
+}
+
+.Photo img{
+	display:block;
+	width:100%;
+	height:auto;
+	max-height:800px;
+}
+
+.Like{
+	height: 35px;
+	background-color:#79489C;
+}
+
+.Like div{
+	display:inline-block;
+}
+
+.buttonLike{
+	float: right;
+}
+
+.buttonLike button{
+	border: 0;
+	font-weight: bold; 
+	font-size:25px;
+	width: 50px;
+	height: 35px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonLike button:focus{
+	outline:none;
+}
+.buttonLike button:active{
+	background-color:#9370DB;
+}
+
+.NumofLikes{
+	float: right;
+	vertical-align: middle;
+	font-size:15px;
+	line-height:0em;
+	color:#E0EB1A;
+	margin-right: 10px;
+}
+
+.buttonAddMore{
+	width:140px;
+	margin: 80px auto;
+}
+
+.buttonAddMore button{
+	/*display: none;*/
+	border: 0;
+	border-radius: 30px;
+	font-weight: bold; 
+	font-size:30px;
+	width: 140px;
+	height: 60px;
+	line-height:1em;
+	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonAddMore button:focus{
+	outline:none;
+}
+.buttonAddMore button:active{
+	background-color:#9370DB;
+}
+
+#main-footer{
+	background-color:#79489C;
+	color:#E0EB1A;
+	line-height:0.7em;
+	text-align:center;
+	padding:5px;
+}
