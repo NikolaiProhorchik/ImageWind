@@ -2,23 +2,9 @@ body{
 	background-color:#f4f4f4;
 	color:#555;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
+	font-size:70%;
 	line-height:1.6em;
 	margin:0;
-}
-
-#main-header{
-	font-size:20px;
-	font-family:Monotype Corsiva, Cursive;
-	background-color:#79489C;
-	color:#E0EB1A;
-	margin:auto;
-	overflow:hidden;
-}
-
-#main-header div{
-	display:inline-block;
-	vertical-align:middle;
 }
 
 .menu 
@@ -27,12 +13,23 @@ body{
 } 
 
 .menu-button{	
+	z-index:1;
 	position:fixed;
-	top:11.2em;
+	width: 2vw;
+	height: 2vw;
+	top:10em;
 	right:0em;
 	color:#FFE4E1;
 	background-color:#FFF5EE;
 	padding:0.5em 1em;
+	line-height:1em;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.menu-button{
+	display: block;
+	vertical-align:middle;
 }
 
 .menu-button{
@@ -45,30 +42,54 @@ body{
 .menu-button:active ~ .menu, 
 .menu:hover{ 
 	display: block; 
+	width:15vw;
+	height:30vw;
 	z-index:1;
 	position:fixed;
-	top:11.2em;
-	right:5em;
+	top:20vh;
+	right:1em;
+	font-size:2vw;
 }
 
 .filter{
-	border: 5px ridge #79489C;
-	padding: 0px 10px;
+	height:80%;
+	border: 0.5em ridge #79489C;
+	padding: 0 1em;
 	color:#79489C;
 	background-color:#FFFFE0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.filter div{
+	width:90%;
+	height:25%;
+	margin: auto;
+	padding-top: 10%;
+	font-size:0.6em;
+	line-height: 1.3em;
+	display: flex;
+	flex-direction: column;
+}
+
+.filter input{
+	width:90%;
+	height:30%;
+	margin: 0 auto;
 }
 
 .filter button{
 	border:0;
-	border-radius:30px;
-	font-weight:bold; 
-	font-size:30px;
-	height:40px;
+	border-radius:5em;
+	font-weight:bold;
+	font-size:1.2em;
+	height:2em;
 	line-height:1em;
 	color:#E0EB1A;
 	background-color:#79489C;
 	width:70%;
-	margin:0 15%;
+	margin:auto 15%;
 }
 
 .filter button:focus{
@@ -79,17 +100,25 @@ body{
 }
 
 .buttonAdd{
+	height:10%;
 	margin-top: 1.5em;
+}
+
+.filter img{
+	display:block;
+	width:1em;
+	height:1em;
+	margin:auto;
 }
 
 .buttonAdd button{
 	/*display: none;*/
 	border: 0;
-	border-radius: 30px;
+	border-radius:5em;
 	font-weight: bold; 
-	font-size:50px;
-	width: 222px;
-	height: 60px;
+	font-size:2em;
+	width: 100%;
+	height: 1em;
 	line-height:1em;
 	color:#E0EB1A;
 	background-color:#79489C;
@@ -102,58 +131,67 @@ body{
 	background-color:#9370DB;
 }
 
-.LogoName{
-	min-width:35%;
-	white-space: nowrap;
-	display: inline-block;
-	margin: 0 auto;
+#main-header{
+	font-family:Monotype Corsiva, Cursive;
+	background-color:#79489C;
+	color:#E0EB1A;
+	font-size:2vw;
+	margin-bottom:5em;
+	overflow:hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
 }
 
-.LogoName div{
-	vertical-align:middle;
+.LogoName{
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size:0.8em;
 }
 
 .Logo{
-	margin:0 1em;
+	margin:auto 1em;
 }
 
 .Logo img{
 	display:block;
-	border-radius:30px;
-	width:60px;
-	height:60px;
+	width:3em;
+	height:3em;
 }
 
 .UserLogoName{
-	min-width:64%;
-	white-space: nowrap;
-	display: inline-block;
-	margin: 0 auto;
-}
-
-.UserLogoName div{
-	vertical-align:middle;
-}
-
-.UserName{
-	margin-right:30%;
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-right:12em;
+	font-size:1.2em;
 }
 
 .UserLogo{
-	margin:0 3em 0 1em;
+	margin:auto 2em;
 }
 
 .UserLogo img{
 	display:block;
-	border-radius:30px;
-	width:60px;
-	height:60px;
+	border-radius:2em;
+	width:2.1em;
+	height:2.1em;
 }
 
+.UserName{
+	margin: auto;
+}
 
 .SignIn{
-	margin-right:20%;
-	white-space: nowrap;
+	display: flex;
+	flex-wrap: nowrap;
+	font-size:0.75em;
+	margin-right: 1em;
 }
 
 .SignIn a{
@@ -162,23 +200,28 @@ body{
 }
 
 .container{
-	width:30%;
-	min-width: 600px;
-	margin: 100px auto;
+	width:50vw;
+	min-width: 20em;
+	margin: 50px auto;
 	overflow:hidden;
+	font-size: 1.3vw;
 }
 
 .NameDate{
 	position:relative;
 	color:#E0EB1A;
 	background-color: #79489C;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-top:1em;
+	padding-bottom:1em;
 }
 
 .NameDate div{
 	vertical-align:middle;
 	display:inline-block;
+}
+
+.AuthorLogoName{
+	white-space:nowrap;
 }
 
 .AuthorLogoName div{
@@ -187,14 +230,21 @@ body{
 
 .AuthorLogo img{
 	display:block;
-	border-radius:30px;
-	width:60px;
-	height:60px;
-	margin:0px 20px;
+	border-radius:50%;
+	width:4em;
+	max-width:80%;
+	height:4em;
+	max-height:80%;
+	margin:0 2em;
+}
+
+.AuthorName{
+	font-size: 1.1em;
 }
 
 .Date{
-	margin-left: 15%;
+	margin-left: 7%;
+	font-size: 1.1em;
 }
 
 .EditDeleteButtons div{
@@ -205,16 +255,21 @@ body{
 	position:absolute;
 	top:0;
 	right:0;
+	height:100%;
+}
+
+.buttonEdit{
+	height: 50%;
 }
 
 .buttonEdit button{
 	/*display: none;*/
 	border: 0;
 	font-weight: bold; 
-	font-size:25px;
-	width: 50px;
-	height: 41px;
+	width: 2em;
+	height:100%;
 	line-height:1em;
+	font-size: 2em;
 	color:#E0EB1A;
 	background-color:#79489C;
 }
@@ -226,14 +281,18 @@ body{
 	background-color:#9370DB;
 }
 
+.buttonDelete{
+	height: 50%;
+}
+
 .buttonDelete button{
 	/*display: none;*/
 	border: 0;
 	font-weight: bold; 
-	font-size:25px;
-	width: 50px;
-	height: 41px;
+	width: 2em;
+	height:100%;
 	line-height:1em;
+	font-size: 2em;
 	color:#E0EB1A;
 	background-color:#79489C;
 }
@@ -246,9 +305,11 @@ body{
 }
 
 .Hash{
-	max-height:135px;
+	max-height:9.8em;
 	color:#79489C;
 	background-color:#E3F5C6;
+	font-size: 1em;
+	line-height:1em;
 	overflow:hidden;
 }
 
@@ -260,28 +321,22 @@ body{
 	display:block;
 	width:100%;
 	height:auto;
-	max-height:800px;
+	max-height:100vh;
 }
 
 .Like{
-	height: 35px;
+	height:2.8em;
 	background-color:#79489C;
-}
-
-.Like div{
-	display:inline-block;
-}
-
-.buttonLike{
-	float: right;
+	display: flex;
+	flex-direction: row-reverse;
 }
 
 .buttonLike button{
 	border: 0;
-	font-weight: bold; 
-	font-size:25px;
-	width: 50px;
-	height: 35px;
+	font-weight: bold;
+	font-size: 2em;
+	width: 2.5em;
+	height: 100%;
 	line-height:1em;
 	color:#E0EB1A;
 	background-color:#79489C;
@@ -290,32 +345,33 @@ body{
 .buttonLike button:focus{
 	outline:none;
 }
+
 .buttonLike button:active{
 	background-color:#9370DB;
 }
 
 .NumofLikes{
-	float: right;
-	vertical-align: middle;
-	font-size:15px;
-	line-height:0em;
+	font-size: 1.5em;
+	line-height:1em;
 	color:#E0EB1A;
-	margin-right: 10px;
+	margin-right: 1em;
+	display: flex;
+	align-items: center;
 }
 
 .buttonAddMore{
-	width:140px;
-	margin: 80px auto;
+	width:20%;
+	margin: 5em auto;
 }
 
 .buttonAddMore button{
 	/*display: none;*/
 	border: 0;
-	border-radius: 30px;
+	border-radius: 5em;
 	font-weight: bold; 
-	font-size:30px;
-	width: 140px;
-	height: 60px;
+	font-size:200%;
+	width: 100%;
+	height:2em;
 	line-height:1em;
 	color:#E0EB1A;
 	background-color:#79489C;
