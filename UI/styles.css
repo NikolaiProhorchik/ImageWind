@@ -179,8 +179,8 @@ body{
 .UserLogo img{
 	display:block;
 	border-radius:2em;
-	width:2.1em;
-	height:2.1em;
+	width:1.8em;
+	height:1.8em;
 }
 
 .UserName{
@@ -200,7 +200,7 @@ body{
 }
 
 .container{
-	width:50vw;
+	width:40vw;
 	min-width: 20em;
 	margin: 50px auto;
 	overflow:hidden;
@@ -305,7 +305,7 @@ body{
 }
 
 .Hash{
-	max-height:9.8em;
+	max-height:9em;
 	color:#79489C;
 	background-color:#E3F5C6;
 	font-size: 1em;
@@ -325,7 +325,7 @@ body{
 }
 
 .Like{
-	height:2.8em;
+	height:2em;
 	background-color:#79489C;
 	display: flex;
 	flex-direction: row-reverse;
@@ -335,7 +335,7 @@ body{
 	border: 0;
 	font-weight: bold;
 	font-size: 2em;
-	width: 2.5em;
+	width: 2.2em;
 	height: 100%;
 	line-height:1em;
 	color:#E0EB1A;
@@ -351,7 +351,7 @@ body{
 }
 
 .NumofLikes{
-	font-size: 1.5em;
+	font-size: 1em;
 	line-height:1em;
 	color:#E0EB1A;
 	margin-right: 1em;
