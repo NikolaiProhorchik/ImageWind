@@ -1,422 +1,115 @@
-;(function() {
-	var PhotoPosts = [
-		{
-            id: '1',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-		},
-		{
-            id: '2',
-            description: 'Êðàñíàÿ ïàíäà, Êèòàé',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '3',
-            description: 'Ïèñüìåííûå óïîìèíàíèÿ îá ýòîì çâåðå â Êèòàå âîñõîäÿò ê XIII ñòîëåòèþ',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '4',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2016-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '5',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2017-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '6',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2014-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '7',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2008-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '8',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '9',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2003-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '10',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2021-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '11',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2039-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '12',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '13',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2001-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '14',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Êðàñèâûé çâåð¸ê'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '15',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '16',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2010-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '17',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Ñèìïîòÿãà'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '18',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2016-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '19',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-		{
-            id: '20',
-            description: 'Êðàñíàÿ ïàíäà',
-            createdAt: new Date('2020-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ'],
-            likes:['Ann','Åãîð']
-        },
-    ];
+class PostCollection {
 	
-	function getPhotoPosts(skip = 0, top = 10, filterConfig)
-    {
-		var PhotoPostsFiltered = [];
-		
-		if ((skip >= 0 && skip < PhotoPosts.length) && (top > 0 && top <= PhotoPosts.length))
-		{
-			if (filterConfig != undefined)
-            {
-				if ('author' in filterConfig && filterConfig.author != undefined)
-                {
-					if ('createdAt' in filterConfig && filterConfig.createdAt != undefined)
-					{
-						if ('hashTags' in filterConfig && filterConfig.hashTags != undefined)
-						{
-							for (var i = 0; i < PhotoPosts.length; i++) 
-							{
-								if (PhotoPosts[i].author == filterConfig.author && PhotoPosts[i].createdAt == filterConfig.createdAt)
-								{
-									pass:
-									for (var k = 0; k < filterConfig.hashtags.length; k++) 
-									{
-										for (var j = 0; j < PhotoPosts[i].hashtags.length; j++) 
-										{
-											if (filterConfig.hashtags[k] == PhotoPosts[i].hashtags[j])
-											{
-												PhotoPostsFiltered.push(PhotoPosts[i]);
-												break pass;
-											}
-										}
-									}
-								}
-							}
-						}
-						else
-						{
-							for (var i = 0; i < PhotoPosts.length; i++) 
-							{
-								if (PhotoPosts[i].author == filterConfig.author && PhotoPosts[i].createdAt == filterConfig.createdAt)
-								{
-									PhotoPostsFiltered.push(PhotoPosts[i]);
-								}
-							}
-						}
-					}
-					else
-					{
-						if ('hashTags' in filterConfig && filterConfig.hashTags != undefined)
-						{
-							for (var i = 0; i < PhotoPosts.length; i++) 
-							{
-								if (PhotoPosts[i].author == filterConfig.author)
-								{
-									pass:
-									for (var k = 0; k < filterConfig.hashtags.length; k++) 
-									{
-										for (var j = 0; j < PhotoPosts[i].hashtags.length; j++) 
-										{
-											if (filterConfig.hashtags[k] == PhotoPosts[i].hashtags[j])
-											{
-												PhotoPostsFiltered.push(PhotoPosts[i]);
-												break pass;
-											}
-										}
-									}
-								}
-							}
-						}
-						else
-						{
-							for (var i = 0; i < PhotoPosts.length; i++) 
-							{
-								if (PhotoPosts[i].author == filterConfig.author)
-								{
-									PhotoPostsFiltered.push(PhotoPosts[i]);
-								}
-							}
-						}
-					}
-                }
-				else
-				{
-					if ('createdAt' in filterConfig && filterConfig.createdAt != undefined)
-					{
-						if ('hashTags' in filterConfig && filterConfig.hashTags != undefined)
-						{
-							for (var i = 0; i < PhotoPosts.length; i++)
-							{
-								if (PhotoPosts[i].createdAt == filterConfig.createdAt)
-								{
-									pass:
-									for (var k = 0; k < filterConfig.hashtags.length; k++) 
-									{
-										for (var j = 0; j < PhotoPosts[i].hashtags.length; j++) 
-										{
-											if (filterConfig.hashtags[k] == PhotoPosts[i].hashtags[j])
-											{
-												PhotoPostsFiltered.push(PhotoPosts[i]);
-												break pass;
-											}
-										}
-									}
-								}
-							}
-						}
-						else
-						{
-							for (var i = 0; i < PhotoPosts.length; i++) 
-							{
-								if (PhotoPosts[i].createdAt == filterConfig.createdAt)
-								{
-									PhotoPostsFiltered.push(PhotoPosts[i]);
-								}
-							}
-						}
-					}
-					else
-					{
-						if ('hashTags' in filterConfig && filterConfig.hashTags != undefined)
-						{
-							for (var i = 0; i < PhotoPosts.length; i++)
-							{
-								pass:
-								for (var k = 0; k < filterConfig.hashtags.length; k++) 
-								{
-									for (var j = 0; j < PhotoPosts[i].hashtags.length; j++) 
-									{
-										if (filterConfig.hashtags[k] == PhotoPosts[i].hashtags[j])
-										{
-											PhotoPostsFiltered.push(PhotoPosts[i]);
-											break pass;
-										}
-									}
-								}
-							}
-						}
-						else
-						{
-							PhotoPostsFiltered = PhotoPosts;
-						}
-					}
-				}
-			}
-			else
-			{
-				PhotoPostsFiltered = PhotoPosts;
-			}
-			
-			PhotoPostsFiltered.sort(function (a, b)
-            {
-                return new Date(b.createdAt) - new Date(a.createdAt);
-            });
-          
-            PhotoPostsFiltered = PhotoPostsFiltered.slice(skip, skip + top);
-			return PhotoPostsFiltered;
-		}
-		else
-		{
-			return PhotoPostsFiltered;
-		}
+	constructor(photoPosts)
+	{
+		this._photoPosts = (photoPosts || []);
 	}
 	
-	function getPhotoPost(id)
+	getPage(skip = 0, top = 10, filterConfig)
     {
-        var PhotoPost;
-        for (var i = 0; i < PhotoPosts.length; i++)
-		{
-            if (PhotoPosts[i].id == id)
-            {
-                PhotoPost = PhotoPosts[i];
-                return PhotoPost;
-            }
-        }
+		let photoPostsFiltered = this._photoPosts.slice(0, this._photoPosts.length);
 		
-        PhotoPost =
+		if (filterConfig != undefined)
+        {
+			if (filterConfig.author != undefined)
             {
-                id: 'notfound',
-				description: 'notfound',
-                createdAt: new Date('0001-01-01T00:00:00'),
-                author: 'notfound',
-                photoLink: 'notfound',
-                hashtags: ['notfound'],
-                likes:['notfound']
-             };
-        return PhotoPost;
+				photoPostsFiltered = photoPostsFiltered.filter(post => post.author === filterConfig.author);
+			}
+				
+			if (filterConfig.createdAt != undefined)
+			{
+				photoPostsFiltered = photoPostsFiltered.filter(post => post.createdAt.getTime() === filterConfig.createdAt.getTime());	
+			}
+				
+			if (filterConfig.hashTags != undefined)
+			{
+				photoPostsFiltered = photoPostsFiltered.filter(post => filterConfig.hashTags.every(hashTag => post.hashTags.includes(hashTag)));	
+			}
+		}
+		
+		photoPostsFiltered.sort(function (a, b)
+        {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        });
+        
+        photoPostsFiltered = photoPostsFiltered.slice(skip, skip + top);
+		return photoPostsFiltered;
+	}
+	
+	get(id)
+    {
+        return this._photoPosts.find(post => post.id === id);
     }
 
-	function validatePhotoPost(PhotoPost)
+	static validate(photoPost)
     {
-        if(PhotoPost === undefined)
+        if (photoPost === undefined)
         {
-            return false;
+			return false;
         }
         
-		var TYPESTRING = '[object String]';
-        var TYPEDATE = '[object Date]';
-        var TYPEOBJECT = '[object Array]';
-        var toString = {}.toString;
+		let TYPESTRING = '[object String]';
+        let TYPEDATE = '[object Date]';
+        let TYPEOBJECT = '[object Array]';
+        let toString = {}.toString;
         
-		return 	(TYPESTRING == toString.call(PhotoPost.id))&&
-		(TYPESTRING == toString.call(PhotoPost. description))&&
-        (TYPESTRING == toString.call(PhotoPost.author))&&
-		(TYPEDATE == toString.call(PhotoPost.createdAt))&&
-		(PhotoPost.createdAt != 'Invalid Date')&&
-		(TYPESTRING == toString.call(PhotoPost.photoLink))&&
-		(TYPEOBJECT == toString.call(PhotoPost.hashtags))&&
-		(TYPEOBJECT == toString.call(PhotoPost.likes))
+		return 	(TYPESTRING === toString.call(photoPost.id))&&
+		(TYPESTRING === toString.call(photoPost.description))&&
+        (TYPESTRING === toString.call(photoPost.author))&&
+		(TYPEDATE === toString.call(photoPost.createdAt))&&
+		(photoPost.createdAt != 'Invalid Date')&&
+		(TYPESTRING === toString.call(photoPost.photoLink))&&
+		(TYPEOBJECT === toString.call(photoPost.hashTags))&&
+		(TYPEOBJECT === toString.call(photoPost.likes))
     }
 
-	function addPhotoPost(PhotoPost)
+	add(photoPost)
     {
-        if(validatePhotoPost(PhotoPost))
+        if(PostCollection.validate(photoPost))
         {
-            PhotoPosts.push(PhotoPost);
+            this._photoPosts.push(photoPost);
             return true;
         }
+		
         return false;
     }
 	
-	function editPhotoPost(id, PhotoPost)
-    {
-		let index = getIndexId(id);
+	addAll(photoPosts)
+	{
+		let invalidPosts = [];
 		
-		if(index == -1)
+		for (let i = 0; i < photoPosts._photoPosts.length; i++)
+        {
+            if (PostCollection.validate(photoPosts._photoPosts[i]))
+            {
+                this._photoPosts.push(photoPosts._photoPosts[i]);
+            }
+			else
+			{
+				invalidPosts.push(photoPosts._photoPosts[i]);
+			}
+        }
+		
+		return invalidPosts;
+	}
+	
+	edit(id, photoPost)
+    {
+		let index = this._photoPosts.findIndex(post => post.id === id);
+		
+		if(index === -1)
 		{
            return false;
 		}
 
-		if(PhotoPost.description != undefined)
+		if(photoPost.description != undefined)
 		{
-			var TYPESTRING = '[object String]';
-			var toString = {}.toString;
+			let TYPESTRING = '[object String]';
+			let toString = {}.toString;
 			
-			if (TYPESTRING == toString.call(PhotoPost. description))
+			if (TYPESTRING === toString.call(photoPost.description))
 			{
-				PhotoPosts[index].description = PhotoPost.description;
+				this._photoPosts[index].description = photoPost.description;
 			}
 			else
 			{
@@ -424,14 +117,14 @@
 			}
 		}
       
-        if(PhotoPost.photoLink != undefined)
+        if(photoPost.photoLink != undefined)
         {
-			var TYPESTRING = '[object String]';
-			var toString = {}.toString;
+			let TYPESTRING = '[object String]';
+			let toString = {}.toString;
 			
-			if(TYPESTRING == toString.call(PhotoPost.photoLink))
+			if(TYPESTRING === toString.call(photoPost.photoLink))
 			{
-				PhotoPosts[index].photoLink = PhotoPost.photoLink;
+				this._photoPosts[index].photoLink = photoPost.photoLink;
 			}
 			else
 			{
@@ -439,14 +132,14 @@
 			}
         }
 		
-		if(PhotoPost.hashTags != undefined)
+		if(photoPost.hashTags != undefined)
         {
-			var TYPESTRING = '[object String]';
-			var toString = {}.toString;
+			let TYPEOBJECT = '[object Array]';
+			let toString = {}.toString;
 			
-			if(TYPEOBJECT == toString.call(PhotoPost.hashtags))
+			if(TYPEOBJECT === toString.call(photoPost.hashTags))
 			{
-				PhotoPosts[index].hashTags = PhotoPost.hashTags;
+				this._photoPosts[index].hashTags = photoPost.hashTags;
 			}
 			else
 			{
@@ -457,126 +150,338 @@
 		return true;
     }
 
-	function removePhotoPost(id)
+	remove(id)
     {
-		let tempId = getIndexId(id);
+		let tempId = this._photoPosts.findIndex(post => post.id === id);
         
-		if(tempId != -1)
+		if(tempId === -1)
 		{
-            PhotoPosts.splice(tempId, 1);
-            return true;
+           return false;
         }
-		return false;
+		
+		this._photoPosts.splice(tempId, 1);
+        return true;
     }
+}
 
-	function getIndexId(id)
-    {
-        for (var i = 0; i < PhotoPosts.length; i++)
-        {
-            if (PhotoPosts[i].id == id)
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
+	let photoPosts = new PostCollection([
+		{
+            id: '1',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+		},
+		{
+            id: '2',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¸Ð»Ð¸ Ð¼Ð°Ð»Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '3',
+            description: 'ÐŸÐ¸ÑÑŒÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑƒÐ¿Ð¾Ð¼Ð¸Ð½Ð°Ð½Ð¸Ñ Ð¾Ð± ÑÑ‚Ð¾Ð¼ Ð·Ð²ÐµÑ€Ðµ Ð² ÐšÐ¸Ñ‚Ð°Ðµ Ð²Ð¾ÑÑ…Ð¾Ð´ÑÑ‚ Ðº XIII ÑÑ‚Ð¾Ð»ÐµÑ‚Ð¸ÑŽ.',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '4',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2016-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '5',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2017-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '6',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2014-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '7',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2008-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '8',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '9',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2003-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '10',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2021-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '11',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2039-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '12',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '13',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2001-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '14',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '15',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '16',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2010-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '17',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '18',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2016-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '19',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '20',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2020-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+    ]);
 	
-	PhotoPosts.getPhotoPosts = getPhotoPosts;
-    PhotoPosts.getPhotoPost = getPhotoPost;
-    PhotoPosts.validatePhotoPost = validatePhotoPost;
-    PhotoPosts.addPhotoPost = addPhotoPost;
-    PhotoPosts.editPhotoPost = editPhotoPost;
-    PhotoPosts.removePhotoPost = removePhotoPost;
-    PhotoPosts.getIndexId = getIndexId;
+	let photoPostsArr;
+    let photoPost; 
 	
-	var PhotoPostsArr;
-    var PhotoPost;
+	//////////////////////getPage:
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° getPage Ñ Ð´Ð²ÑƒÐ¼Ñ Ð²Ð°Ð»Ð¸Ð´Ð½Ñ‹Ð¼Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸:');
+    photoPostsArr = photoPosts.getPage(0,5);
+    console.log(photoPostsArr);
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° getPage Ñ Ñ‚Ñ€ÐµÐ¼Ñ Ð²Ð°Ð»Ð¸Ð´Ð½Ñ‹Ð¼Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸:');
+    photoPostsArr = photoPosts.getPage(0,3,{author:'Mike Phillips', createdAt: new Date('2019-03-03T13:09:00'), hashTags:['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ']});
+	console.log(photoPostsArr);
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° getPage Ñ Ñ‚Ñ€ÐµÐ¼Ñ Ð²Ð°Ð»Ð¸Ð´Ð½Ñ‹Ð¼Ð¸ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸:');
+    photoPostsArr = photoPosts.getPage(0,5,{hashTags:['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'ÐšÑ€Ð°ÑÐ¸Ð²Ñ‹Ð¹ Ð·Ð²ÐµÑ€Ñ‘Ðº']});
+    console.log(photoPostsArr);
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° getPage ÐºÐ¾Ð³Ð´Ð° Ð¿Ð¾ Ñ‚Ñ€ÐµÑ‚ÑŒÐµÐ¼Ñƒ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ñƒ Ð½Ð¸Ñ‡ÐµÐ³Ð¾ Ð½Ðµ Ð¿Ð¾Ð´Ñ…Ð¾Ð´Ð¸Ñ‚:');
+    photoPostsArr = photoPosts.getPage(5,10,{author:'Mikesdhgf gdfggPhillips', hashTags:['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ']});
+    console.log(photoPostsArr);
+	
+	//////////////////////////get
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° get Ñ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¼ Ð¸Ð½Ð´ÐµÐºÑÐ¾Ð¼:');
+    photoPost = photoPosts.get('3');
+    console.log(photoPost);
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° get Ñ Ð½ÐµÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ð¼ Ð¸Ð½Ð´ÐµÐºÑÐ¾Ð¼:');
+    photoPost = photoPosts.get('25');
+    console.log(photoPost);
     
-	//////////////////////getPhotoPosts:
-    console.log('Ïðîâåðêà getPhotoPosts ñ äâóìÿ âàëèäíûìè ïàðàìåòðàìè:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(0,5);
-    console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts ñ òðåìÿ âàëèäíûìè ïàðàìåòðàìè:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(0,3,{author:'Mike Phillips', hashtags:['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ']});
-	console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts ñ òðåìÿ âàëèäíûìè ïàðàìåòðàìè:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(0,5,{hashtags:['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ']});
-    console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts ñ ïåðâûì èíâàëèäíûì ïàðàìåòðîì:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(-1,5,{author:'Mike Phillips'});
-    console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts ñî âòîðûì èíâàëèäíûì ïàðàìåòðîì:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(1,100,{author:'Mike Phillips', hashtags:['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ']});
-    console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts ñ äâóìÿ èíâàëèäíûìè ïàðàìåòðîì:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(-2,100,{author:'Mike Phillips'});
-    console.log(PhotoPostsArr);
-    console.log('Ïðîâåðêà getPhotoPosts êîãäà ïî òðåòüåìó ïàðàìåòðó íè÷åãî íå ïîäõîäèò:');
-    PhotoPostsArr = PhotoPosts.getPhotoPosts(5,10,{author:'Mikesdhgf gdfggPhillips', hashtags:['ÊðàñíàÿÏàíäà','Çâåðü èç Êèòàÿ']});
-    console.log(PhotoPostsArr);
-	
-	//////////////////////////getPhotoPost
-    console.log('Ïðîâåðêà getPhotoPost ñ ñóùåñòâóþùèì èíäåêñîì:');
-    PhotoPost = PhotoPosts.getPhotoPost(3);
-    console.log(PhotoPost);
-    console.log('Ïðîâåðêà getPhotoPost ñ íåñóùåñòâóþùèì èíäåêñîì:');
-    PhotoPost = PhotoPosts.getPhotoPost(25);
-    console.log(PhotoPost);
-    
-	////////////////////////////validatePhotoPost/addPhotoPost
-    console.log('Ïðîâåðêà ìåòîäîâ validatePhotoPost è addPhotoPost ñ âàëèäíûì îáúåêòîì:');
-    var PhotoPostIfValidate =
+	////////////////////////////validate/add
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð² validate Ð¸ add Ñ Ð²Ð°Ð»Ð¸Ð´Ð½Ñ‹Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð¼:');
+    let photoPostIfValidate =
     {
         id: '111',
-        description: '×òî-íèáóäü',
+        description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
         createdAt: new Date('2357-02-23T23:00:00'),
         author: 'EgorSem',
         photoLink: 'Panda.jpg',
-        hashtags: ['Êðàñèâûé çâåð¸ê','ïàíäà'],
-        likes:['Ann','Åãîð']
+        hashTags: ['Ð”Ð»Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ â„–1','Ð”Ð»Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ â„–2'],
+        likes:['Ann','Ð•Ð³Ð¾Ñ€']
     }
-	console.log('Âàëèäíîñòü ýëåìåíòà:');
-    console.log(PhotoPosts.validatePhotoPost(PhotoPostIfValidate));
-    console.log('Äîáàâëåíèå âàëèäíîãî ýëåìåíòà:');
-    console.log(PhotoPosts.addPhotoPost(PhotoPostIfValidate));
-    console.log(PhotoPosts);
-    console.log('Ïðîâåðêà ìåòîäîâ validatePhotoPost è addPhotoPost ñ íå âàëèäíûì îáúåêòîì:');
-    PhotoPostIfValidate =
+	console.log('Ð’Ð°Ð»Ð¸Ð´Ð½Ð¾ÑÑ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°:');
+    console.log(PostCollection.validate(photoPostIfValidate));
+    console.log('ÐŸÐ¾ÑÐ»Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÑ‚Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°:');
+    console.log(photoPosts.add(photoPostIfValidate));
+    console.log(photoPosts);
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð² validate Ð¸ add Ñ Ð½Ðµ Ð²Ð°Ð»Ð¸Ð´Ð½Ñ‹Ð¼ Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð¼:');
+    photoPostIfValidate =
         {
             id: '-399',
-            description: 'È åù¸ ÷òî-íèáóäü(ÝËÅÌÅÍÒ ÍÅ ÄÎÁÀÂËßÅÒÑß)',
+            description: 'ÐžÑ‡ÐµÐ½ÑŒ Ð¸Ð½Ñ‚ÐµÑ€ÐµÑÐ½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ',
             createdAt: new Date('2357-02-23m23:00:00'),
             author: 'EgorSem',
             photoLink: 'Panda.jpg',
-            hashtags: ['Êðàñèâûé çâåð¸ê','ïàíäà'],
-            likes:['Ann','Åãîð']
+            hashTags: ['Ð”Ð»Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ â„–1','Ð”Ð»Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¸ â„–2'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
         }
-	console.log('Âàëèäíîñòü ýëåìåíòà:');
-    console.log(PhotoPosts.validatePhotoPost(PhotoPostIfValidate));
-    console.log('Äîáàâëåíèå èíâàëèäíîãî ýëåìåíòà:');
-    console.log(PhotoPosts.addPhotoPost(PhotoPostIfValidate));
-    console.log(PhotoPosts);
+	console.log('Ð’Ð°Ð»Ð¸Ð´Ð½Ð¾ÑÑ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°:');
+    console.log(PostCollection.validate(photoPostIfValidate));
+    console.log('ÐŸÐ¾ÑÐ»Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÑ‚Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°:');
+    console.log(photoPosts.add(photoPostIfValidate));
+    console.log(photoPosts);
+	
+	////////////////////////////addAll
+	console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð° addAll:');
+	 
+	let newphotoPosts = new PostCollection([
+		{
+            id: '46',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+		},
+		{
+            id: '47',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¸Ð»Ð¸ Ð¼Ð°Ð»Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '-589',
+            description: 'ÐŸÐ¸ÑÑŒÐ¼ÐµÐ½Ð½Ñ‹Ðµ ÑƒÐ¿Ð¾Ð¼Ð¸Ð½Ð°Ð½Ð¸Ñ Ð¾Ð± ÑÑ‚Ð¾Ð¼ Ð·Ð²ÐµÑ€Ðµ Ð² ÐšÐ¸Ñ‚Ð°Ðµ Ð²Ð¾ÑÑ…Ð¾Ð´ÑÑ‚ Ðº XIII ÑÑ‚Ð¾Ð»ÐµÑ‚Ð¸ÑŽ.',
+            createdAt: new Date('2019-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '458',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2016-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+		{
+            id: '1000',
+            description: 'ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°',
+            createdAt: new Date('2017-03-03T13:09:00'),
+            author: 'Mike Phillips',
+            //photoLink: 'Panda.jpg',
+            hashTags: ['ÐšÑ€Ð°ÑÐ½Ð°Ñ Ð¿Ð°Ð½Ð´Ð°', 'Ð—Ð²ÐµÑ€ÑŒ Ð¸Ð· ÐšÐ¸Ñ‚Ð°Ñ'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
+        },
+    ]);
+	
+	let invalidPosts = photoPosts.addAll(newphotoPosts);
+	console.log('Ð”Ð¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð½Ð°Ñ Ð±Ð°Ð·Ð° Ñ„Ð¾Ñ‚Ð¾Ð¿Ð¾ÑÑ‚Ð¾Ð²:');
+	console.log(photoPosts);
+	console.log('ÐŸÐ¾ÑÑ‚Ñ‹, Ð½Ðµ Ð¿Ñ€Ð¾ÑˆÐµÐ´ÑˆÐ¸Ðµ Ð²Ð°Ð»Ð¸Ð´Ð°Ñ†Ð¸ÑŽ:');
+	console.log(invalidPosts);
     
-	///////////////////////editPhotoPost
-    console.log('Ïðîâåðêà ìåòîäà editPhotoPost:');
-    var PhotoPostEdit =
+	///////////////////////edit
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð° edit:');
+    let photoPostEdit =
         {
 			id: '300',
-            description: 'È ñíîâà ÷òî-íèáóäü',
+            description: 'ÐžÐ¿Ð¸ÑÐ°Ð½Ð¸Ðµ',
             createdAt: new Date('2369-03-23T23:00:00'),
             author: 'EgorSem',
             photoLink: 'Panda.jpg',
-            hashtags: ['Êðàñèâûé çâåð¸ê','ïàíäà'],
-            likes:['Ann','Åãîð']
+            hashTags: ['Ð¥ÑÑˆÑ‚ÐµÐ³ â„–1','Ð¥ÑÑˆÑ‚ÐµÐ³ â„–2'],
+            likes:['Ann','Ð•Ð³Ð¾Ñ€']
         };
-    console.log(PhotoPostEdit);
-	PhotoPosts.addPhotoPost(PhotoPostEdit);
-    console.log('Ïîñëå ðåäàêòèðîâàíèÿ:');
-    console.log(PhotoPosts.editPhotoPost(300,{description: 'Íîâîå îïèñàíèå', photoLink: 'Íîâàÿ ôîòêà.jpg'}));
-    console.log(PhotoPosts);
+	photoPosts.add(photoPostEdit);
+	console.log(photoPosts);
+    console.log('ÐŸÐ¾ÑÐ»Ðµ Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ:');
+    console.log(photoPosts.edit('300',{description: 'ÐÐ¾Ð²Ð¾Ðµ Ð¾Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ', hashTags: ['ÐÐ¾Ð²Ñ‹Ð¹ Ñ…ÑÑˆÑ‚ÐµÐ³ â„–1', 'ÐÐ¾Ð²Ñ‹Ð¹ Ñ…ÑÑˆÑ‚ÐµÐ³ â„–2'], photoLink: 'ÐÐ¾Ð²Ð°Ñ ÑÑÑ‹Ð»ÐºÐ°.jpg'}));
+    console.log(photoPosts);
     
-	/////////////////removePhotoPost
-    console.log('Ïðîâåðêà ìåòîäà removePhotoPost:');
-    console.log(PhotoPosts.removePhotoPost(2));
-    console.log(PhotoPosts);
-}());
+	/////////////////remove
+    console.log('ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð° remove:');
+    console.log(photoPosts.remove('2'));
+    console.log(photoPosts);
