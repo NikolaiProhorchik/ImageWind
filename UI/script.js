@@ -1,3 +1,212 @@
+﻿class TapeView{
+
+    constructor()
+    {
+        this.user = '';
+        this.ifAuthorized = false;
+
+        const template = document.getElementById('UserLogoName-template');
+        let newUser = document.importNode(template.content, true);
+        document.getElementById('userLogoName').appendChild(newUser);
+    }
+
+	authorization(user)
+    {
+        const template = document.getElementById('UserLogoName-template');
+        let newUser = document.importNode(template.content, true);
+
+        if (user != undefined)
+        {
+            newUser.getElementById('userLogo').setAttribute('src', user.logo);
+            newUser.getElementById('userName').innerText = user.name;
+
+            this.user = user.name;
+            this.ifAuthorized = true;
+        }
+        else
+        {
+            newUser.getElementById('userLogo').style.display = 'none';
+            newUser.getElementById('userLogo').setAttribute('src', '');
+            newUser.getElementById('userName').innerText = '';
+
+            this.user = '';
+            this.ifAuthorized = false;
+        }
+
+        document.getElementById('userLogoName').replaceChild(newUser, document.getElementById('userlogoname'));
+
+        let photoPosts = document.getElementsByClassName('container');
+        let photoPostsArray = Array.from(photoPosts);
+
+        photoPostsArray.forEach(item =>
+        {
+            if (item.getElementsByClassName('AuthorName')[0].innerText != this.user)
+            {
+                item.getElementsByClassName('buttonEdit')[0].style.display = 'none';
+                item.getElementsByClassName('buttonDelete')[0].style.display = 'none';
+            }
+            else
+            {
+                item.getElementsByClassName('buttonEdit')[0].style.display = '';
+                item.getElementsByClassName('buttonDelete')[0].style.display = '';
+            }
+        });
+    }
+	
+    addPhotoPost(photoPost)
+    {
+        const template = document.getElementById('container-template');
+        let newphotoPost = document.importNode(template.content, true);
+
+        this.setPhoto('authorLogo', photoPost.photoLinkAuthor, newphotoPost);
+        this.setInner('authorName', photoPost.author, newphotoPost);
+        this.setDate(photoPost.createdAt, newphotoPost);
+        this.setHashtags(photoPost.hashTags, newphotoPost);
+        this.setInner('description', photoPost.description, newphotoPost);
+        this.setPhoto('photo', photoPost.photoLink, newphotoPost);
+        this.setLikes(photoPost.likes, newphotoPost);
+
+        if (newphotoPost.getElementById('authorName').innerText != this.user)
+        {
+            newphotoPost.getElementById('buttonedit').style.display = 'none';
+            newphotoPost.getElementById('buttondelete').style.display = 'none';
+        }
+        
+		document.getElementById('tape').appendChild(newphotoPost);
+    }
+	
+    editPhotoPost(id, photoPost)
+    {
+        let photoPosts = document.getElementsByClassName('container');
+        let photoPostsArray = Array.from(photoPosts);
+        const prevPhotoPost = photoPostsArray[id];
+        const template = document.getElementById('container-template');
+        let editedphotoPost = document.importNode(template.content, true);
+
+        if(!this.setPhoto('authorLogo', photoPost.photoLinkAuthor, editedphotoPost))
+        {
+            this.setPhoto('authorLogo', prevPhotoPost.getElementsByClassName('AuthorLogo')[0].children[0].getAttribute('src'), editedphotoPost);
+        }
+
+        if(!this.setInner('authorName', photoPost.author, editedphotoPost))
+        {
+            this.setInner('authorName', prevPhotoPost.getElementsByClassName('AuthorName')[0].innerText, editedphotoPost);
+        }
+
+        if(!this.setDate(photoPost.createdAt, editedphotoPost))
+        {
+            this.setInner('date', prevPhotoPost.getElementsByClassName('Date')[0].innerText, editedphotoPost);
+        }
+
+        if(!this.setHashtags(photoPost.hashTags, editedphotoPost))
+        {
+            this.setInner('hashTags', prevPhotoPost.getElementsByClassName('HashTags')[0].innerText, editedphotoPost);
+        }
+
+        if(!this.setInner('description', photoPost.description, editedphotoPost))
+        {
+            this.setInner('description', prevPhotoPost.getElementsByClassName('Description')[0].innerText, editedphotoPost);
+        }
+
+        if(!this.setPhoto('photo', photoPost.photoLink, editedphotoPost))
+        {
+            this.setPhoto('photo',  prevPhotoPost.getElementsByClassName('Photo')[0].children[0].getAttribute('src'), editedphotoPost);
+        }
+
+        if(!this.setLikes(photoPost.likes, editedphotoPost))
+        {
+            this.setInner('numofLikes',  prevPhotoPost.getElementsByClassName('NumofLikes')[0].innerText, editedphotoPost);
+        }
+
+        if (editedphotoPost.getElementById('authorName').innerText != this.user)
+        {
+            editedphotoPost.getElementById('buttonedit').style.display = 'none';
+            editedphotoPost.getElementById('buttondelete').style.display = 'none';
+        }
+
+        document.getElementById('tape').replaceChild(editedphotoPost, photoPostsArray[id]);
+    }
+
+    setInner(id, edition, node)
+    {
+        let temp = node.getElementById(id).innerText;
+        if(edition != undefined)
+        {
+            node.getElementById(id).innerText = edition;
+            return true;
+        }
+
+        return false;
+    }
+
+    setPhoto(id, edition, node)
+    {
+        if(edition != undefined)
+        {
+            node.getElementById(id).setAttribute('src', edition);
+            return true;
+        }
+
+        return false;
+    }
+
+    setDate(edition, node)
+    {
+        if(edition != undefined)
+        {
+            const options = {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                timezone: 'UTC',
+                hour: 'numeric',
+                minute: 'numeric',
+            };
+
+            this.setInner('date', edition.toLocaleString('ru', options), node);
+            return true;
+        }
+
+        return false;
+    }
+
+    setHashtags(edition, node)
+    {
+        if(edition != undefined)
+        {
+            let str = '';
+
+            edition.forEach(item =>
+            {
+                str = str + item + ' ';
+            });
+            this.setInner('hashTags', str, node);
+            return true;
+        }
+
+        return false;
+    }
+
+    setLikes(edition, node)
+    {
+        if(edition != undefined)
+        {
+            this.setInner('numofLikes', edition.length, node);
+            return true;
+        }
+
+        return false;
+    }
+	
+    removePhotoPost(id)
+    {
+        let photoPosts = document.getElementsByClassName('container');
+        let photoPostsArray = Array.from(photoPosts);
+		
+        document.getElementById('tape').removeChild(photoPostsArray[id]);
+    }
+}
+
 class PostCollection {
 	
 	constructor(photoPosts)
@@ -164,324 +373,108 @@ class PostCollection {
     }
 }
 
-	let photoPosts = new PostCollection([
-		{
-            id: '1',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-		},
-		{
-            id: '2',
-            description: 'Красная или малая панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '3',
-            description: 'Письменные упоминания об этом звере в Китае восходят к XIII столетию.',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '4',
-            description: 'Красная панда',
-            createdAt: new Date('2016-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '5',
-            description: 'Красная панда',
-            createdAt: new Date('2017-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '6',
-            description: 'Красная панда',
-            createdAt: new Date('2014-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Красивый зверёк'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '7',
-            description: 'Красная панда',
-            createdAt: new Date('2008-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '8',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '9',
-            description: 'Красная панда',
-            createdAt: new Date('2003-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Красивый зверёк'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '10',
-            description: 'Красная панда',
-            createdAt: new Date('2021-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '11',
-            description: 'Красная панда',
-            createdAt: new Date('2039-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Красивый зверёк'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '12',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '13',
-            description: 'Красная панда',
-            createdAt: new Date('2001-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '14',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '15',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '16',
-            description: 'Красная панда',
-            createdAt: new Date('2010-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '17',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Красивый зверёк'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '18',
-            description: 'Красная панда',
-            createdAt: new Date('2016-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '19',
-            description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Красивый зверёк'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '20',
-            description: 'Красная панда',
-            createdAt: new Date('2020-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-    ]);
-	
-	let photoPostsArr;
-    let photoPost; 
-	
-	//////////////////////getPage:
-    console.log('Проверка getPage с двумя валидными параметрами:');
-    photoPostsArr = photoPosts.getPage(0,5);
-    console.log(photoPostsArr);
-    console.log('Проверка getPage с тремя валидными параметрами:');
-    photoPostsArr = photoPosts.getPage(0,3,{author:'Mike Phillips', createdAt: new Date('2019-03-03T13:09:00'), hashTags:['Красная панда', 'Зверь из Китая']});
-	console.log(photoPostsArr);
-    console.log('Проверка getPage с тремя валидными параметрами:');
-    photoPostsArr = photoPosts.getPage(0,5,{hashTags:['Красная панда', 'Красивый зверёк']});
-    console.log(photoPostsArr);
-    console.log('Проверка getPage когда по третьему параметру ничего не подходит:');
-    photoPostsArr = photoPosts.getPage(5,10,{author:'Mikesdhgf gdfggPhillips', hashTags:['Красная панда', 'Зверь из Китая']});
-    console.log(photoPostsArr);
-	
-	//////////////////////////get
-    console.log('Проверка get с существующим индексом:');
-    photoPost = photoPosts.get('3');
-    console.log(photoPost);
-    console.log('Проверка get с несуществующим индексом:');
-    photoPost = photoPosts.get('25');
-    console.log(photoPost);
-    
-	////////////////////////////validate/add
-    console.log('Проверка методов validate и add с валидным объектом:');
-    let photoPostIfValidate =
+(function() {
+    function photoposts()
     {
-        id: '111',
-        description: 'Красная панда',
-        createdAt: new Date('2357-02-23T23:00:00'),
-        author: 'EgorSem',
-        photoLink: 'Panda.jpg',
-        hashTags: ['Для проверки №1','Для проверки №2'],
-        likes:['Ann','Егор']
+        return 1;
     }
-	console.log('Валидность элемента:');
-    console.log(PostCollection.validate(photoPostIfValidate));
-    console.log('После добавления этого элемента:');
-    console.log(photoPosts.add(photoPostIfValidate));
-    console.log(photoPosts);
-    console.log('Проверка методов validate и add с не валидным объектом:');
-    photoPostIfValidate =
-        {
-            id: '-399',
-            description: 'Очень интересная информация',
-            createdAt: new Date('2357-02-23m23:00:00'),
-            author: 'EgorSem',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Для проверки №1','Для проверки №2'],
-            likes:['Ann','Егор']
-        }
-	console.log('Валидность элемента:');
-    console.log(PostCollection.validate(photoPostIfValidate));
-    console.log('После добавления этого элемента:');
-    console.log(photoPosts.add(photoPostIfValidate));
-    console.log(photoPosts);
 	
-	////////////////////////////addAll
-	console.log('Проверка метода addAll:');
-	 
-	let newphotoPosts = new PostCollection([
-		{
-            id: '46',
+    function addPhotoPost(photoPost, postCollection, tapeView)
+    {
+		if(postCollection.add(photoPost))
+        {
+            tapeView.addPhotoPost(photoPost);
+            return true;
+        }
+		
+        return false;
+    }
+	
+    function editPhotoPost(id, photoPost, postCollection, tapeView)
+    {
+		if(postCollection.edit(id, photoPost))
+        {
+            tapeView.editPhotoPost(id, photoPost);
+            return true;
+        }
+        
+		return false;
+    }
+    
+	function removePhotoPost(id, postCollection, tapeView)
+    {
+		if(postCollection.remove(id))
+        {
+            tapeView.removePhotoPost(id);
+            return true;
+        }
+        
+		return false;
+
+    }
+	
+    photoposts.addPhotoPost = addPhotoPost;
+    photoposts.editPhotoPost = editPhotoPost;
+    photoposts.removePhotoPost = removePhotoPost;
+    
+	let viewController = new TapeView();
+	let photoPosts = new PostCollection();
+
+    let temp = new PostCollection([
+        {
+            id: '0',
             description: 'Красная панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-		},
-		{
-            id: '47',
-            description: 'Красная или малая панда',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
+            createdAt: new Date('2357-02-23T23:00:00'),
+            author: 'Nick Phillips',
+            photoLink: 'photos/Panda.jpg',
+            photoLinkAuthor: 'photos/Man.jpg',
+            hashTags: ['#Красная панда','#Зверь из Китая'],
+            likes: ['Ann', 'Егор'],
         },
-		{
-            id: '-589',
-            description: 'Письменные упоминания об этом звере в Китае восходят к XIII столетию.',
-            createdAt: new Date('2019-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
+        {
+			id: '1',
+			description: 'Иииииииии-а-ха',
+			createdAt: new Date('2357-02-23T23:00:00'),
+			author: 'Mike Phillips',
+			photoLink: 'photos/Panda.jpg',
+			photoLinkAuthor: 'photos/Man.jpg',
+			hashTags: ['#Красная панда','#Зверь из Китая'],
+			likes:['Ann','Егор']
         },
-		{
-            id: '458',
-            description: 'Красная панда',
-            createdAt: new Date('2016-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
-        },
-		{
-            id: '1000',
-            description: 'Красная панда',
-            createdAt: new Date('2017-03-03T13:09:00'),
-            author: 'Mike Phillips',
-            //photoLink: 'Panda.jpg',
-            hashTags: ['Красная панда', 'Зверь из Китая'],
-            likes:['Ann','Егор']
+        {
+            id: '2',
+            description: 'Панда, просто панда',
+            createdAt: new Date('2357-02-23T23:00:00'),
+            author: 'Mike Phillips 2.0',
+            photoLink: 'photos/Panda.jpg',
+            photoLinkAuthor: 'photos/Man.jpg',
+            hashTags: ['#Красная панда','#Зверь из Китая'],
+            likes: ['Ann', 'Егор']
         },
     ]);
-	
-	let invalidPosts = photoPosts.addAll(newphotoPosts);
-	console.log('Дополненная база фотопостов:');
-	console.log(photoPosts);
-	console.log('Посты, не прошедшие валидацию:');
-	console.log(invalidPosts);
-    
-	///////////////////////edit
-    console.log('Проверка метода edit:');
-    let photoPostEdit =
+		
+    let editphotoPost =
         {
-			id: '300',
-            description: 'Описание',
-            createdAt: new Date('2369-03-23T23:00:00'),
-            author: 'EgorSem',
-            photoLink: 'Panda.jpg',
-            hashTags: ['Хэштег №1','Хэштег №2'],
-            likes:['Ann','Егор']
+            id: '0',
+            description: 'Новая панда',
+            //createdAt: new Date('2357-02-23T23:00:00'),
+            //author: 'Mike Phillips',
+            //photoLink: 'photos/Panda.jpg',
+            //photoLinkAuthor: 'photos/Man.jpg',
+            hashTags: ['#Что новое','#И ещё новое'],
+            //likes:['Ann','Егор']
         };
-	photoPosts.add(photoPostEdit);
-	console.log(photoPosts);
-    console.log('После редактирования:');
-    console.log(photoPosts.edit('300',{description: 'Новое описание', hashTags: ['Новый хэштег №1', 'Новый хэштег №2'], photoLink: 'Новая ссылка.jpg'}));
-    console.log(photoPosts);
-    
-	/////////////////remove
-    console.log('Проверка метода remove:');
-    console.log(photoPosts.remove('2'));
-    console.log(photoPosts);
+
+    viewController.authorization({logo: 'photos/Man.jpg', name: 'Nick Phillips'});
+
+    photoposts.addPhotoPost(temp._photoPosts[0], photoPosts, viewController);
+    photoposts.addPhotoPost(temp._photoPosts[1], photoPosts, viewController);
+    photoposts.addPhotoPost(temp._photoPosts[2], photoPosts, viewController);
+
+    //viewController.authorization();
+	
+    photoposts.editPhotoPost('0', editphotoPost, photoPosts, viewController);
+    photoposts.removePhotoPost('1', photoPosts, viewController);
+
+
+}());
