@@ -1,441 +1,106 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title>ImageWind | Лента</title>
 	<meta charset = "utf-8">
 	<link rel="stylesheet" type="text/css" href="styles.css">
-	<script type="text/javascript" src="script.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<header id="main-header">
 		<div class="LogoName">
 			<div class="Logo">
-				<img src="photos/ImageWindLogo.jpg" alt="Logo"/>
+				<img src="photos/ImageWindLogo.jpg" alt="Logo"></img>
 			</div>
 			<div class="Name">
 				<h1>ImageWind</h1>
 			</div>
 		</div>
-		<div class="UserLogoName">
-			<div class="UserLogo">
-				<img src="photos/Man.jpg" alt="Your Logo"/>
-			</div>
-			<div class="UserName">
-				Mike Phillips
-			</div>
+		<div id = "userLogoName">
+		<template id = "UserLogoName-template">
+		<div id="userlogoname" class="UserLogoName">
+			<div class="UserLogo"><img id = "userLogo" src=""></img></div>
+			<div id = "userName" class="UserName"></div>
+		</div>
+		</template>
 		</div>
 		<div class="SignIn">
 				<a href="SignIn.html">Sign In</a>
 		</div>
 	</header>
 	
-	<a class="menu-button" href="javascript:void(0);" tabindex="1" ><div>&#8226&#8226&#8226</div></a>
+	<a class="menu-button" href="javascript:void(0);" tabindex="1" ><div>&#8226   &#8226   &#8226</div></a>
 	
 	<div class="menu">
 		<div class="filter">
 			<div>Автор: <input type="text" name="firstname"></div>
 			<div>Дата: <input type="datetime-local" name="date"></div>
 			<div>Шэштеги: <input type="text" name="tags"></div>
-			<div><button><img src="photos/Magnifier.jpg" alt="Mike Phillips"/></button></div>
+			<div><button><img src="photos/Magnifier.jpg"></img></button></div>
 		</div>
 		<div class="buttonAdd">
 			<button>&#43</button>
 		</div>
 	</div>
 	
+	<div id="tape">
+	<template id = "container-template">
 	<div class="container">
 		<div class="NameDate">
 			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
+				<div class="AuthorLogo"><img id="authorLogo" src=""></img></div>
+				<div id="authorName" class="AuthorName"></div>
 			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
+			<div id="date" class="Date"></div>
 			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
+				<div id="buttonedit" class="buttonEdit">
 					<button>&#9998</button>
 				</div>
-				<div class="buttonDelete">
+				<div id="buttondelete" class="buttonDelete">
 					<button>&#215</button>
 				</div>
 			</div>
 		</div>
-		<div class="Hash">
-			<p>#Красная панда</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Panda.jpg" alt="Red Panda"/>
-		</div>
+		<div class="Hash"><p id="hashTags" class="HashTags"></p><p id="description" class="Description"></p></div>
+		<div class="Photo"><img id="photo" src=""></img></div>
 		<div class="Like">
 			<div class="buttonLike">
 				<button>&#9825</button>
 			</div>
-			<div class="NumofLikes">
-				<div>12 369</div>
-			</div>
+			<div id="numofLikes" class="NumofLikes"></div>
 		</div>
 	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Сосновый лес</p>
-			<p>Лес – не просто собрание деревьев. Здесь, как и всюду в природе, «все связано со всем». Возникает сложное переплетение и взаимное влияние живых и неживых компонентов природы. Это сложнейшая система, существующая по определенным законам – природный комплекс.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Forest.jpg" alt="Forest"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
+	</template>
 	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
+
+	<div id="edit">
+		<template id = "containerEdit-template">
+			<div class="container">
+				<div class="NameDate">
+					<div class="AuthorLogoName">
+						<div class="AuthorLogo"><img id="authorLogoEdit" src=""></img></div>
+						<div id="authorNameEdit" class="AuthorName"></div>
+					</div>
+					<div id="dateEdit" class="Date"></div>
+					<div class="EditDeleteButtons">
+						<div id="buttoneditEdit" class="buttonEdit">
+							<button>&#9998</button>
+						</div>
+						<div id="buttondeleteEdit" class="buttonDelete">
+							<button>&#215</button>
+						</div>
+					</div>
 				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Облака</p>
-			<p>При низкой влажности и незначительном восхождении воздуха предсказывают хорошую погоду, в ином случае сгущаются и вызывают грозу.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Wind.jpg" alt="Wind"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
+				<div class="Hash"><p id="hashTagsEdit"></p><p id="descriptionEdit"></p></div>
+				<div class="Photo"><img id="photoEdit" src=""></img></div>
+				<div class="Like">
+					<div class="buttonLike">
+						<button>&#9825</button>
+					</div>
+					<div id="numofLikesEdit" class="NumofLikes"></div>
 				</div>
 			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Красная панда</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Panda.jpg" alt="Red Panda"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Сосновый лес</p>
-			<p>Лес – не просто собрание деревьев. Здесь, как и всюду в природе, «все связано со всем». Возникает сложное переплетение и взаимное влияние живых и неживых компонентов природы. Это сложнейшая система, существующая по определенным законам – природный комплекс.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Forest.jpg" alt="Forest"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Облака</p>
-			<p>При низкой влажности и незначительном восхождении воздуха предсказывают хорошую погоду, в ином случае сгущаются и вызывают грозу.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Wind.jpg" alt="Wind"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Красная панда</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Panda.jpg" alt="Red Panda"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					<h3>Mike Phillips</h3>
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Сосновый лес</p>
-			<p>Лес – не просто собрание деревьев. Здесь, как и всюду в природе, «все связано со всем». Возникает сложное переплетение и взаимное влияние живых и неживых компонентов природы. Это сложнейшая система, существующая по определенным законам – природный комплекс.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Forest.jpg" alt="Forest"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Облака</p>
-			<p>При низкой влажности и незначительном восхождении воздуха предсказывают хорошую погоду, в ином случае сгущаются и вызывают грозу.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Wind.jpg" alt="Wind"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo">
-					<img src="photos/Man.jpg" alt="Mike Phillips"/>
-				</div>
-				<div class="AuthorName">
-					Mike Phillips
-				</div>
-			</div>
-			<div class="Date">
-				03.03.2019 13:09
-			</div>
-			<div class="EditDeleteButtons">
-				<div class="buttonEdit">
-					<button>&#9998</button>
-				</div>
-				<div class="buttonDelete">
-					<button>&#215</button>
-				</div>
-			</div>
-		</div>
-		<div class="Hash">
-			<p>#Красная панда</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-			<p>Письменные упоминания об этом звере в Китае восходят к XIII столетию, но европейцы узнали о нём только в XIX веке. Официально «открыл» его в 1821 году английский генерал и натуралист Томас Хардвик, собиравший материал на территории английских колоний.</p>
-		</div>
-		<div class="Photo">
-			<img src="photos/Panda.jpg" alt="Red Panda"/>
-		</div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
-			</div>
-			<div class="NumofLikes">
-				<h3>12 369</h3>
-			</div>
-		</div>
+		</template>
 	</div>
 	
 	<div class="buttonAddMore">
@@ -443,8 +108,9 @@
 	</div>
 
 	<footer id="main-footer">
-		<p>Copyright &copy; 2019 "ImageWind"<</p> 
+		<p>Copyright &copy; 2019 "ImageWind"</p> 
 		<p>Николай Прохорчик</p>
 	</footer>
 </body>
+<script type="text/javascript" src="script.js"></script>
 </html>
