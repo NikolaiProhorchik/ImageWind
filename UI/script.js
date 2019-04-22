@@ -1,4 +1,93 @@
-﻿class TapeView{
+﻿class Controller {
+
+    constructor(photoPosts, TapeView) {
+        this.tapeView = TapeView;
+        this.fullCollection = photoPosts;
+        this.currCollection = photoPosts;
+    }
+
+    ControllerLogin() {
+        let elementLog = document.getElementById("login");
+        let elementMain = document.getElementById("main");
+        let tapeView =  this.tapeView;
+        let handle = function () {
+            let user = {};
+            user.name = document.getElementById('userlogin').value;
+            user.logo = 'photos/Man.jpg';
+            tapeView.authorization(user);
+            elementLog.style.display = "none";
+            elementMain.style.display = "block";
+        };
+        let login = document.getElementById('buttonlogin');
+        login.addEventListener('click', handle);
+    }
+
+    ControllerToAuthorization()
+    {
+        let elementLog = document.getElementById("login");
+        let elementMain = document.getElementById("main");
+        let handle = function()
+        {
+            elementLog.style.display="flex";
+            elementMain.style.display="none";
+        };
+        let signin = document.getElementById('buttonsignin');
+        signin.addEventListener('click', handle);
+    }
+
+    ControllerMenu()
+    {
+        let elementMenu = document.getElementById("filteradd");
+        let handle = function()
+        {
+            elementMenu.style.display="flex";
+        };
+        let filteradd = document.getElementById('buttonfilteradd');
+        filteradd.addEventListener('click', handle);
+    }
+
+    ControllerFilter()
+    {
+        let elementAuthor = document.getElementById('filterAuthor');
+        let elementHashtags = document.getElementById('filterHashtags');
+        let tapeView =  this.tapeView;
+        let fCollection = this.fullCollection;
+        let cCollection = this.currCollection;
+        let handle = function ()
+        {
+            let value;
+
+            tapeView.removeAll();
+
+            cCollection = new PostCollection(fCollection._photoPosts.slice());
+
+            if (elementAuthor.innerText != undefined)
+            {
+                value = elementAuthor.value;
+
+                cCollection = new PostCollection(cCollection.getPage(0, cCollection._photoPosts.length, {author: value}));
+            }
+
+            if (elementHashtags.innerText != undefined)
+            {
+                value = elementHashtags.value;
+                const hashTags = value.split(' ');
+
+                cCollection = new PostCollection(cCollection.getPage(0, cCollection._photoPosts.length, {hashTags: hashTags}));
+            }
+
+            cCollection._photoPosts.forEach(item =>
+            {
+                tapeView.addPhotoPost(item);
+            });
+        };
+
+        let search = document.getElementById('search');
+        search.addEventListener('click', handle);
+    };
+}
+
+class TapeView{
 
     constructor()
     {
@@ -205,6 +294,18 @@
 		
         document.getElementById('tape').removeChild(photoPostsArray[id]);
     }
+
+    removeAll()
+    {
+        let tape = document.getElementById('tape');
+        let photoPosts = document.getElementsByClassName('container');
+        let photoPostsArray = Array.from(photoPosts);
+
+        photoPostsArray.forEach(item =>
+        {
+            tape.removeChild(item);
+        });
+    }
 }
 
 class PostCollection {
@@ -240,9 +341,11 @@ class PostCollection {
         {
             return new Date(b.createdAt) - new Date(a.createdAt);
         });
-        
-        photoPostsFiltered = photoPostsFiltered.slice(skip, skip + top);
-		return photoPostsFiltered;
+
+		let temp;
+        temp = photoPostsFiltered.slice(skip, Math.min(skip + top, photoPostsFiltered.length));
+        //photoPostsFiltered = photoPostsFiltered.slice(skip, Math.min(skip + top, photoPostsFiltered.length));
+		return temp;
 	}
 	
 	get(id)
@@ -445,7 +548,7 @@ class PostCollection {
             id: '2',
             description: 'Панда, просто панда',
             createdAt: new Date('2357-02-23T23:00:00'),
-            author: 'Mike Phillips 2.0',
+            author: 'Jack Phillips',
             photoLink: 'photos/Panda.jpg',
             photoLinkAuthor: 'photos/Man.jpg',
             hashTags: ['#Красная панда','#Зверь из Китая'],
@@ -465,7 +568,7 @@ class PostCollection {
             //likes:['Ann','Егор']
         };
 
-    viewController.authorization({logo: 'photos/Man.jpg', name: 'Nick Phillips'});
+    //viewController.authorization({logo: 'photos/Man.jpg', name: 'Nick Phillips'});
 
     photoposts.addPhotoPost(temp._photoPosts[0], photoPosts, viewController);
     photoposts.addPhotoPost(temp._photoPosts[1], photoPosts, viewController);
@@ -476,5 +579,9 @@ class PostCollection {
     photoposts.editPhotoPost('0', editphotoPost, photoPosts, viewController);
     photoposts.removePhotoPost('1', photoPosts, viewController);
 
-
+    let controller = new Controller(photoPosts, viewController);
+    controller.ControllerLogin();
+    controller.ControllerToAuthorization();
+    controller.ControllerMenu();
+    controller.ControllerFilter();
 }());

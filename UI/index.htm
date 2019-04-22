@@ -7,70 +7,88 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<header id="main-header">
-		<div class="LogoName">
-			<div class="Logo">
-				<img src="photos/ImageWindLogo.jpg" alt="Logo"></img>
-			</div>
-			<div class="Name">
-				<h1>ImageWind</h1>
-			</div>
+	<div id="login" class="Login">
+		<div class="LogoNameforLogin">
+			<div class="LogoforLogin"><img src="photos/ImageWindLogo.jpg"></img></div>
+			<div class="NameforLogin"><p>ImageWind</p></div>
 		</div>
-		<div id = "userLogoName">
-		<template id = "UserLogoName-template">
-		<div id="userlogoname" class="UserLogoName">
-			<div class="UserLogo"><img id = "userLogo" src=""></img></div>
-			<div id = "userName" class="UserName"></div>
-		</div>
-		</template>
-		</div>
-		<div class="SignIn">
-				<a href="SignIn.html">Sign In</a>
-		</div>
-	</header>
-	
-	<a class="menu-button" href="javascript:void(0);" tabindex="1" ><div>&#8226   &#8226   &#8226</div></a>
-	
-	<div class="menu">
-		<div class="filter">
-			<div>Автор: <input type="text" name="firstname"></div>
-			<div>Дата: <input type="datetime-local" name="date"></div>
-			<div>Шэштеги: <input type="text" name="tags"></div>
-			<div><button><img src="photos/Magnifier.jpg"></img></button></div>
-		</div>
-		<div class="buttonAdd">
-			<button>&#43</button>
-		</div>
+		<form class="Fields" action="" method="get">
+			<input type="text" name="userLogin" id="userlogin" class="txt input" placeholder="login">
+			<input type="password" name="userPassword" size="7" class="txt input" placeholder="password">
+			<button id="buttonlogin" class="buttonLogin" type="button">Log in</button>
+		</form>
 	</div>
-	
-	<div id="tape">
-	<template id = "container-template">
-	<div class="container">
-		<div class="NameDate">
-			<div class="AuthorLogoName">
-				<div class="AuthorLogo"><img id="authorLogo" src=""></img></div>
-				<div id="authorName" class="AuthorName"></div>
-			</div>
-			<div id="date" class="Date"></div>
-			<div class="EditDeleteButtons">
-				<div id="buttonedit" class="buttonEdit">
-					<button>&#9998</button>
+
+	<div id="main" class="Main">
+		<header id="main-header">
+			<div class="LogoName">
+				<div class="Logo">
+					<img src="photos/ImageWindLogo.jpg" alt="Logo"></img>
 				</div>
-				<div id="buttondelete" class="buttonDelete">
-					<button>&#215</button>
+				<div class="Name">
+					<h1>ImageWind</h1>
 				</div>
 			</div>
-		</div>
-		<div class="Hash"><p id="hashTags" class="HashTags"></p><p id="description" class="Description"></p></div>
-		<div class="Photo"><img id="photo" src=""></img></div>
-		<div class="Like">
-			<div class="buttonLike">
-				<button>&#9825</button>
+			<div id = "userLogoName">
+				<template id = "UserLogoName-template">
+					<div id="userlogoname" class="UserLogoName">
+						<div class="UserLogo"><img id = "userLogo" src=""></img></div>
+						<div id = "userName" class="UserName"></div>
+					</div>
+				</template>
 			</div>
-			<div id="numofLikes" class="NumofLikes"></div>
+			<div class="SignIn">
+				<button id="buttonsignin" class="buttonSignin" type="button">Sign In</button>
+			</div>
+		</header>
+
+		<button id="buttonfilteradd" class="menu-button"><div>&#8226   &#8226   &#8226</div></button>
+
+		<div id="filteradd" class="menu">
+			<div class="filter">
+				<div>Автор: <input type="text" id="filterAuthor" name="authorname"></div>
+				<div>Дата: <input type="datetime-local" name="date"></div>
+				<div>Хэштеги: <input type="text" id="filterHashtags" name="tags"></div>
+				<div><button id="search"><img src="photos/Magnifier.jpg"></img></button></div>
+			</div>
+			<div class="buttonAdd">
+				<button>&#43</button>
+			</div>
 		</div>
-	</div>
-	</template>
+
+		<div id="tape">
+			<template id = "container-template">
+				<div class="container">
+					<div class="NameDate">
+						<div class="AuthorLogoName">
+							<div class="AuthorLogo"><img id="authorLogo" src=""></img></div>
+							<div id="authorName" class="AuthorName"></div>
+						</div>
+						<div id="date" class="Date"></div>
+						<div class="EditDeleteButtons">
+							<div id="buttonedit" class="buttonEdit">
+								<button>&#9998</button>
+							</div>
+							<div id="buttondelete" class="buttonDelete">
+								<button>&#215</button>
+							</div>
+						</div>
+					</div>
+					<div class="Hash"><p id="hashTags" class="HashTags"></p><p id="description" class="Description"></p></div>
+					<div class="Photo"><img id="photo" src=""></img></div>
+					<div class="Like">
+						<div class="buttonLike">
+							<button>&#9825</button>
+						</div>
+						<div id="numofLikes" class="NumofLikes"></div>
+					</div>
+				</div>
+			</template>
+		</div>
+
+		<div class="buttonAddMore">
+			<button>Ещё</button>
+		</div>
 	</div>
 
 	<div id="edit">
@@ -101,10 +119,6 @@
 				</div>
 			</div>
 		</template>
-	</div>
-	
-	<div class="buttonAddMore">
-		<button>Ещё</button>
 	</div>
 
 	<footer id="main-footer">

@@ -15,7 +15,7 @@ body{
 .menu-button{	
 	z-index:1;
 	position:fixed;
-	width: 2vw;
+	border:0;
 	min-width: 25px;
 	height: 2vw;
 	min-height: 15px;
@@ -26,9 +26,7 @@ body{
 	background-color:#FFF5EE;
 	padding:0.5em 1em;
 	line-height:1em;
-	display: flex;
 	align-items: center;
-	justify-content: center;
 	text-decoration:none;
 	flex-wrap: nowrap;
 }
@@ -36,28 +34,30 @@ body{
 .menu-button:focus{
 	outline:none;
 }
-.menu-button:focus ~ .menu, 
-.menu-button:active ~ .menu, 
-.menu:hover{ 
-	display: block; 
-	width:15vw;
-	height:30vw;
+
+.menu{
+	display: none;
+	width:10vw;
+	height:20vw;
 	z-index:1;
 	position:fixed;
 	top:15vw;
 	right:1em;
 	font-size:2vw;
+	flex-direction: column;
+	align-items: center;
 }
 
 .filter{
 	height:80%;
-	border: 0.5em ridge #79489C;
-	padding: 0 1em;
+	width:100%;
+	border: 0.3em ridge #79489C;
+	padding: 0 5%;
 	color:#79489C;
 	background-color:#FFFFE0;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .filter div{
@@ -73,7 +73,7 @@ body{
 
 .filter input{
 	width:90%;
-	height:30%;
+	height:50%;
 	margin: 0 auto;
 }
 
@@ -82,7 +82,7 @@ body{
 	border-radius:5em;
 	font-weight:bold;
 	font-size:1.2em;
-	height:2em;
+	height:1.7em;
 	line-height:1em;
 	color:#E0EB1A;
 	background-color:#79489C;
@@ -97,11 +97,6 @@ body{
 	background-color:#9370DB;
 }
 
-.buttonAdd{
-	height:10%;
-	margin-top: 1.5em;
-}
-
 .filter img{
 	display:block;
 	width:1em;
@@ -109,15 +104,20 @@ body{
 	margin:auto;
 }
 
+.buttonAdd{
+	height:15%;
+	width: 70%;
+	margin-top: 0.5em;
+}
+
 .buttonAdd button{
-	/*display: none;*/
 	border: 0;
+	height:100%;
+	width:100%;
 	border-radius:5em;
-	font-weight: bold; 
-	font-size:2em;
-	width: 100%;
-	height: 1em;
-	line-height:1em;
+	font-weight: bold;
+	font-size:1.5em;
+	line-height:0.7em;
 	color:#E0EB1A;
 	background-color:#79489C;
 }
@@ -171,6 +171,7 @@ body{
 }
 
 .UserLogo{
+	display: none;
 	margin:auto 2em;
 }
 
@@ -188,13 +189,28 @@ body{
 .SignIn{
 	display: flex;
 	flex-wrap: nowrap;
-	font-size:0.75em;
 	margin-right: 1em;
 }
 
-.SignIn a{
-	text-decoration:none;
+.buttonSignin {
+	border: 0;
+	border-radius:5em;
+	font-family:Monotype Corsiva, Cursive;
+	font-weight: bold;
+	font-size:0.7em;
+	width: 100%;
+	height: 1em;
+	line-height:1em;
 	color:#E0EB1A;
+	background-color:#79489C;
+}
+
+.buttonSignin:focus{
+	outline:none;
+}
+
+.buttonSignin:active{
+	text-decoration: underline;
 }
 
 .container{
@@ -396,6 +412,57 @@ body{
 	padding:5px;
 }
 
+.Login{
+	font-family:Monotype Corsiva, Cursive;
+	background-image:url('photos/Wind.jpg');
+	background-position:center;
+	color:#E0EB1A;
+	font-size:2vw;
+	overflow:hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	height: 90.7vh;
+	min-height: 90.7vh;
+}
+
+.LogoNameforLogin{
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+	font-size:2em;
+	margin-top: 15%;
+}
+
+.LogoforLogin{
+	margin-right: 0.5em;
+}
+
+.LogoforLogin img{
+	display:block;
+	width:2em;
+	height:2em;
+}
+
+.Fields{
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size:3em;
+	margin-bottom: 20%;
+}
+
 #edit{
+	display: none;
+}
+
+.Main{
+
+}
+
+.Login{
 	display: none;
 }
