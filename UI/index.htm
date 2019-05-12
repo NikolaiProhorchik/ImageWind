@@ -7,6 +7,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<header id="main-header">
+		<div class="LogoName">
+			<div class="Logo">
+				<img src="photos/ImageWindLogo.jpg" alt="Logo"></img>
+			</div>
+			<div class="Name">
+				<h1>ImageWind</h1>
+			</div>
+		</div>
+		<div id="userLogoName" class="UserLogoName">
+			<div class="UserLogo"><img id = "userLogo" src=""></img></div>
+			<div id = "userName" class="UserName"></div>
+		</div>
+		<div class="SignIn">
+			<button id="buttonsignin" class="buttonSignIn" type="button">Sign In</button>
+		</div>
+	</header>
+
 	<div id="login" class="Login">
 		<div class="LogoNameforLogin">
 			<div class="LogoforLogin"><img src="photos/ImageWindLogo.jpg"></img></div>
@@ -19,32 +37,29 @@
 		</form>
 	</div>
 
+	<div id="addPost" class="AddPost">
+		<div class="containerForAddEdit">
+			<div class="NameDate">
+				<div class="AuthorLogoName">
+					<div class="AuthorLogo"><img id="authorLogoAdd" src=""></img></div>
+					<div id="authorNameAdd" class="AuthorName"></div>
+				</div>
+				<div id="dateAdd" class="Date"></div>
+			</div>
+			<textarea id="hashAdd" class = "HashAdd"></textarea>
+			<div id="photoAdd" class="PhotoAdd">
+				<div class="labelinputAddPhoto">
+					<input type="file" name="forFile" class="inputAddPhoto" id="inputaddphoto">
+					<label for="inputaddphoto" class = "labelAddPhoto" id="labeladdphoto">&#43</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div id="main" class="Main">
-		<header id="main-header">
-			<div class="LogoName">
-				<div class="Logo">
-					<img src="photos/ImageWindLogo.jpg" alt="Logo"></img>
-				</div>
-				<div class="Name">
-					<h1>ImageWind</h1>
-				</div>
-			</div>
-			<div id = "userLogoName">
-				<template id = "UserLogoName-template">
-					<div id="userlogoname" class="UserLogoName">
-						<div class="UserLogo"><img id = "userLogo" src=""></img></div>
-						<div id = "userName" class="UserName"></div>
-					</div>
-				</template>
-			</div>
-			<div class="SignIn">
-				<button id="buttonsignin" class="buttonSignin" type="button">Sign In</button>
-			</div>
-		</header>
+		<button id="buttonFilterAdd" class="menu-button"><div>&#8226   &#8226   &#8226</div></button>
 
-		<button id="buttonfilteradd" class="menu-button"><div>&#8226   &#8226   &#8226</div></button>
-
-		<div id="filteradd" class="menu">
+		<div id="filterAdd" class="menu">
 			<div class="filter">
 				<div>Автор: <input type="text" id="filterAuthor" name="authorname"></div>
 				<div>Дата: <input type="datetime-local" name="date"></div>
@@ -52,7 +67,7 @@
 				<div><button id="search"><img src="photos/Magnifier.jpg"></img></button></div>
 			</div>
 			<div class="buttonAdd">
-				<button>&#43</button>
+				<button id="buttonadd">&#43</button>
 			</div>
 		</div>
 
@@ -89,36 +104,6 @@
 		<div class="buttonAddMore">
 			<button>Ещё</button>
 		</div>
-	</div>
-
-	<div id="edit">
-		<template id = "containerEdit-template">
-			<div class="container">
-				<div class="NameDate">
-					<div class="AuthorLogoName">
-						<div class="AuthorLogo"><img id="authorLogoEdit" src=""></img></div>
-						<div id="authorNameEdit" class="AuthorName"></div>
-					</div>
-					<div id="dateEdit" class="Date"></div>
-					<div class="EditDeleteButtons">
-						<div id="buttoneditEdit" class="buttonEdit">
-							<button>&#9998</button>
-						</div>
-						<div id="buttondeleteEdit" class="buttonDelete">
-							<button>&#215</button>
-						</div>
-					</div>
-				</div>
-				<div class="Hash"><p id="hashTagsEdit"></p><p id="descriptionEdit"></p></div>
-				<div class="Photo"><img id="photoEdit" src=""></img></div>
-				<div class="Like">
-					<div class="buttonLike">
-						<button>&#9825</button>
-					</div>
-					<div id="numofLikesEdit" class="NumofLikes"></div>
-				</div>
-			</div>
-		</template>
 	</div>
 
 	<footer id="main-footer">

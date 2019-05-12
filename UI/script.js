@@ -7,16 +7,16 @@
     }
 
     ControllerLogin() {
-        let elementLog = document.getElementById("login");
-        let elementMain = document.getElementById("main");
         let tapeView =  this.tapeView;
-        let handle = function () {
+        let handle = function ()
+        {
             let user = {};
             user.name = document.getElementById('userlogin').value;
             user.logo = 'photos/Man.jpg';
             tapeView.authorization(user);
-            elementLog.style.display = "none";
-            elementMain.style.display = "block";
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('main-header').style.display = 'flex';
+            document.getElementById('main').style.display = 'block';
         };
         let login = document.getElementById('buttonlogin');
         login.addEventListener('click', handle);
@@ -24,26 +24,39 @@
 
     ControllerToAuthorization()
     {
-        let elementLog = document.getElementById("login");
-        let elementMain = document.getElementById("main");
+        let tapeView =  this.tapeView;
         let handle = function()
         {
-            elementLog.style.display="flex";
-            elementMain.style.display="none";
+            if (tapeView.ifAuthorized == true)
+            {
+                tapeView.authorization();
+            }
+            else
+            {
+                document.getElementById('login').style.display = 'flex';
+                document.getElementById('main-header').style.display = 'none';
+                document.getElementById('main').style.display = 'none';
+            }
         };
-        let signin = document.getElementById('buttonsignin');
-        signin.addEventListener('click', handle);
+        let signIn = document.getElementById('buttonsignin');
+        signIn.addEventListener('click', handle);
     }
 
     ControllerMenu()
     {
-        let elementMenu = document.getElementById("filteradd");
         let handle = function()
         {
-            elementMenu.style.display="flex";
+            if (document.getElementById('filterAdd').style.display == 'none')
+            {
+                document.getElementById('filterAdd').style.display = 'flex';
+            }
+            else
+            {
+                document.getElementById('filterAdd').style.display = 'none';
+            }
         };
-        let filteradd = document.getElementById('buttonfilteradd');
-        filteradd.addEventListener('click', handle);
+        let filterAdd = document.getElementById('buttonFilterAdd');
+        filterAdd.addEventListener('click', handle);
     }
 
     ControllerFilter()
@@ -85,6 +98,55 @@
         let search = document.getElementById('search');
         search.addEventListener('click', handle);
     };
+
+    ControllerAdd()
+    {
+        let tapeView =  this.tapeView;
+        let fCollection = this.fullCollection;
+        let cCollection = this.currCollection;
+        let handle = function ()
+        {
+            if (tapeView.ifAuthorized == true)
+            {
+                document.getElementById('addPost').style.display = 'flex';
+                document.getElementById('main').style.display = 'none';
+
+                document.getElementById('authorLogoAdd').setAttribute('src', 'photos/Man.jpg');
+                document.getElementById('authorNameAdd').innerText = tapeView.user;
+                ////Дату ставим при сохранении
+                const options = {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    timezone: 'UTC',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                };
+                document.getElementById('dateAdd').innerText = (new Date(Date.now())).toLocaleString('ru', options);
+            }
+            else
+            {
+                document.getElementById('login').style.display = 'flex';
+                document.getElementById('main-header').style.display = 'none';
+                document.getElementById('main').style.display = 'none';
+            }
+        };
+
+        let add = document.getElementById('buttonadd');
+        add.addEventListener('click', handle);
+    };
+
+    ControllerAddPhoto()
+    {
+        let handle = function()
+        {
+            document.getElementById('photoAdd').style.backgroundImage = 'url(' + document.getElementById('inputaddphoto').files[0].name + ')';
+            /*bAdd.disabled = "";*/
+            document.getElementById('inputaddphoto').value = "";
+            document.getElementById('inputaddphoto').addEventListener('change',handle);
+        };
+        document.getElementById('inputaddphoto').addEventListener('change',handle);
+    }
 }
 
 class TapeView{
@@ -93,36 +155,30 @@ class TapeView{
     {
         this.user = '';
         this.ifAuthorized = false;
-
-        const template = document.getElementById('UserLogoName-template');
-        let newUser = document.importNode(template.content, true);
-        document.getElementById('userLogoName').appendChild(newUser);
     }
 
 	authorization(user)
     {
-        const template = document.getElementById('UserLogoName-template');
-        let newUser = document.importNode(template.content, true);
-
         if (user != undefined)
         {
-            newUser.getElementById('userLogo').setAttribute('src', user.logo);
-            newUser.getElementById('userName').innerText = user.name;
+            document.getElementById('userLogo').setAttribute('src', user.logo);
+            document.getElementById('userName').innerText = user.name;
+            document.getElementById('buttonsignin').innerText = 'Sign Out';
+            document.getElementById('userLogo').style.display = 'flex';
 
             this.user = user.name;
             this.ifAuthorized = true;
         }
         else
         {
-            newUser.getElementById('userLogo').style.display = 'none';
-            newUser.getElementById('userLogo').setAttribute('src', '');
-            newUser.getElementById('userName').innerText = '';
+            document.getElementById('userLogo').setAttribute('src', '');
+            document.getElementById('userName').innerText = '';
+            document.getElementById('buttonsignin').innerText = 'Sign In';
+            document.getElementById('userLogo').style.display = 'none';
 
             this.user = '';
             this.ifAuthorized = false;
         }
-
-        document.getElementById('userLogoName').replaceChild(newUser, document.getElementById('userlogoname'));
 
         let photoPosts = document.getElementsByClassName('container');
         let photoPostsArray = Array.from(photoPosts);
@@ -584,4 +640,6 @@ class PostCollection {
     controller.ControllerToAuthorization();
     controller.ControllerMenu();
     controller.ControllerFilter();
+    controller.ControllerAdd();
+    controller.ControllerAddPhoto();
 }());
